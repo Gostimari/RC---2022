@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<launch>
+    <remap from="/image" to="/astra/rgb/image_raw"/>
+    <node pkg="zbar_ros" type="barcode_reader_node" name="barcode_reader_node" output="screen"/>
+    
+
+    <node pkg="rviz" type="rviz" name="rviz"
+        args="-d $(find rc_package)/rviz/explorer.rviz"
+    />
+
+    <include file="$(find rc_package)/launch/move_base_explorer_hw.launch"/>
+    <include file="$(find pal_person_detector_opencv)/launch/detector.launch">
+        <arg name="image" default="/astra/rgb/image_raw"/>
+    </include>
+    
+</launch>
