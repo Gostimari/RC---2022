@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<launch>
+    <remap from="/image" to="/camera/rgb/image_raw"/>
+    <node pkg="zbar_ros" type="barcode_reader_node" name="barcode_reader_node"/>
+    <node pkg="map_server" type="map_server" name="map_server" args="$(find rc_package)/world/1r5.yaml"/>
+
+    <node pkg="rviz" type="rviz" name="rviz"
+        args="-d $(find rc_package)/rviz/guide.rviz"
+    />
+
+    <include file="$(find rc_package)/launch/amcl.launch">
+        <arg name="initial_pose_x" default="6.0"/>
+        <arg name="initial_pose_y" default="1.0"/>
+        <arg name="initial_pose_a" default="1.5"/>
+    </include>
+    <include file="$(find rc_package)/launch/move_base.launch"/>
+    <include file="$(find rc_package)/launch/world.launch"/>
+</launch>
