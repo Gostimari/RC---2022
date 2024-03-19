@@ -1,2 +1,2 @@
-# RC-2022
+# Cognitive Robotics-2022
 For this project it was proposed to us to carry out an autonomous mobile robot for disinfection, or that is, a robot that autonomously navigates through a map, constructed a priori, of the spaces in who will carry out the disinfection, having to be able to navigate safely in the presence of static and dynamic obstacles. When the robot is will look for the QR code on your around, which contain the necessary information for the platform to successfully carry out disinfection, such as, lamp power, the energy needed to eliminate the virus and where the robot should stop in each room, in order to ensure that disinfection is done correctly.
